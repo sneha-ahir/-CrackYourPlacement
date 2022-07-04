@@ -1,0 +1,40 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+    /*    int ans=0;
+        sort(nums.begin(), nums.end());
+        for(int i=0; i<nums.size()-1; i++){
+            if(nums[i]==nums[i+1]){
+                ans=nums[i];
+            }
+        }
+        return ans;  */
+        int tortoise = nums[0];
+        int hare = nums[0];
+
+        // Loop till we find the
+        // duplicate element
+        while (1) {
+
+            tortoise = nums[tortoise];
+
+            // Hare moves with twice
+            // the speed of tortoise
+            hare = nums[nums[hare]];
+            if (tortoise == hare)
+                break;
+        }
+
+        tortoise = nums[0];
+
+        // Loop to get start point
+        // of the cycle as start
+        // point will be the duplicate
+        // element
+        while (tortoise != hare) {
+            tortoise = nums[tortoise];
+            hare = nums[hare];
+        }
+        return tortoise;
+    }
+};
