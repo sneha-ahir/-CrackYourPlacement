@@ -1,0 +1,48 @@
+//Floyd’s Cycle-Finding Algorithm (tortoise and the hare algorithm) used for optimisation
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+    
+    //brute force approach but good way to do(please refer this also)
+ /*       ListNode *current=head;
+        if(head==NULL or head->next==NULL){
+            return false;
+        }
+        int i=0;
+        while(i<100000){
+            if(current->next==NULL){
+                return false;
+            }
+            i++;
+            current=current->next;
+        }
+        return true;  */
+        
+        
+        //optimised way using cycle detection algo or Floyd's Cycle Finding algo
+        ListNode *fast=head;
+        ListNode *slow=head;
+        
+        if(head==NULL || head->next==NULL){
+            return false;
+        }
+        
+        while(fast!=NULL && fast->next!=NULL){
+            slow=slow->next;
+            fast=fast->next->next;
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+    }
+};
