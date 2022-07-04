@@ -12,7 +12,7 @@ public:
         
         
         
-        // we can use hashmap, cycle detection algo or binary sort....below is the cycle detection algo
+        // we can use hashmap, cycle detection algo or binary sort....below is the cycle detection algo or Floyd's Cycle finding algo,it is also used in LinkedList cycle detection 
         
         int tortoise = nums[0];
         int hare = nums[0];
