@@ -9,6 +9,11 @@ public:
             }
         }
         return ans;  */
+        
+        
+        
+        // we can use hashmap, cycle detection algo or binary sort....below is the cycle detection algo
+        
         int tortoise = nums[0];
         int hare = nums[0];
 
